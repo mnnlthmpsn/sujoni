@@ -1,0 +1,68 @@
+{% extends '../base.html' %}
+
+{% block body %}
+<div class="container">
+    <h3 class="text-muted my-3 text-center">Edit Item</h3>
+    {% if item %}
+    <form action="{% url 'playground:update_item' item.id %}" method="POST">
+        {% csrf_token %}
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="categories">Categories</label>
+                    <select class="form-control" id="categories" name="category">
+                        {% if categories %}
+                        {% for category in categories %}
+                        <option>{{ category.title }}</option>
+                        {% endfor %}
+                        {% endif %}
+                    </select>
+                </div>
+
+                <!-- author -->
+                <div class="form-group">
+                    <label for="owner">Owner</label>
+                    <input type="text" class="form-control" id="owner" name="owner" aria-describedby="ownerHel"
+                       value="{{ item.owner }}" required>
+                </div>
+
+                <!-- author -->
+                <div class="form-group">
+                    <label for="tilte">Title</label>
+                    <input type="text" class="form-control" id="title" name="title" aria-describedby="titleHelp"
+                        value="{{ item.title }}" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="content">Content</label>
+                    <textarea id="summernote" class="form-control" name="content" required>
+                        {{ item.content }}
+                    </textarea>
+                    <script>
+                      $(document).ready(function () {
+                        $('#summernote').summernote({
+                          tabsize: 2,
+                          height: 300,
+                          toolbar: [
+                            ['style', ['style']],
+                            ['font', ['bold', 'underline', 'italic', 'clear']],
+                            ['color', ['color']],
+                            ['para', ['ul', 'ol', 'paragraph']],
+                            ['table', ['table']],
+                            ['insert', ['link', 'picture', 'video']],
+                          ]
+                        })
+                      })
+                    </script>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <button type="submit" class="btn btn-success w-50" style="margin-top: 30px;">Update Item</button>
+            </div>
+        </div>
+    </form>
+    {% endif %}
+
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,69 @@
+{% extends '../base.html' %}
+{% load static %}
+
+{% block body %}
+<div class="jumbotron jumbotron-fluid bg-success text-center py-5">
+    <div class="container">
+        <div class="text-white">
+            <h1 class="display-1">Welcome to Sujoni</h1>
+            <p class="lead">...where everything is possible</p>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <!-- row -->
+    <div class="row justify-content-center text-center effect">
+        <div class="col-sm-5">
+            <div class="card shadow mb-2 animate">
+                <a href="{% url 'playground:add_item' %}">
+                    <div class="card-body">
+                        <h6 class="text-muted card-title mt-2">Add Item</h6>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- row -->
+
+    <!-- body -->
+    <hr class="w-50 mt-5 pb-2" />
+    <h1 class="display-4 text-center pb-4">Recently Added Items</h1>
+
+    <div class="row">
+        {% if items %}
+        {% for item in items %}
+        <div class="col-sm-6 col-lg-3">
+            <div class="card mb-2">
+                <img class="card-img-top img-fluid" src="https://i.redd.it/76ec74u8voo31.jpg" alt="">
+                <div class="card-body">
+                    <h3 class="card-title">{{ item.title }}</h3>
+                    <p class="card-subtitle text-muted mb-2"><em>{{ item.category }}</em></p>
+                    <p class="card-subtitle text-muted mb-2"><strong>{{ item.owner }}</strong></p>
+                    <a class="btn btn-success" href="{% url 'playground:read_item' item.id %}">Read</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        {% else %}
+        <div class="col-sm-6 col-lg-3">
+            <div class="card mb-2">
+                <img class="card-img-top img-fluid" src="https://i.redd.it/76ec74u8voo31.jpg" alt="">
+                <div class="card-body">
+                    <h3 class="card-title">None Added yet</h3>
+                    <p class="card-subtitle text-muted mb-2"><em>None</em></p>
+                    <p class="card-subtitle text-muted mb-2"><strong>None</strong></p>
+                    <p class="card-text">None</p>
+                    <button class="btn btn-success" href="#" disabled>Read</button>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+    </div>
+    <!-- body -->
+</div>
+
+
+
+{% endblock %}
