@@ -31,14 +31,13 @@ ALLOWED_HOSTS = ['http://sujoni.herokuapp.com', 'https://sujoni.herokuapp.com']
 # Application definition
 
 INSTALLED_APPS = [
+    'playground',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
-    'playground',
 ]
 
 MIDDLEWARE = [
