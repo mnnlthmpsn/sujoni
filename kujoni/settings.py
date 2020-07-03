@@ -26,7 +26,6 @@ SECRET_KEY = os.environ['SECRET_KEY']
 DEBUG = False
 
 ALLOWED_HOSTS = ['http://sujoni.herokuapp.com', 'https://sujoni.herokuapp.com']
-# ALLOWED_HOSTS = ['*']
 
 
 # Application definition
