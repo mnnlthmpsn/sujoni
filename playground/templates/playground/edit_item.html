@@ -36,7 +36,9 @@
                 <div class="form-group">
                     <label for="content">Content</label>
                     <textarea id="summernote" class="form-control" name="content" required>
+                        {% autoescape off %}
                         {{ item.content }}
+                        {% endautoescape %}
                     </textarea>
                     <script>
                       $(document).ready(function () {
