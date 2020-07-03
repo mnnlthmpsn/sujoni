@@ -29,7 +29,9 @@
 <body>
     <nav class="navbar navbar-expand-md bg-success navbar-dark shadow-sm sticky-top">
         <div class="container">
-            <a class="navbar-brand" href="{% url 'playground:index' %}">Sujoni</a>
+            <a class="navbar-brand" href="{% url 'playground:index' %}">
+                <img src="{% static 'playground/img/logo.png' %}" alt="sujoni" width="30" height="30" class="img-fluid">
+                Sujoni</a>
             <!-- toggle icon -->
             <button class="navbar-toggler" data-toggle="collapse" data-target="#mainNav">
                 <span class="navbar-toggler-icon"></span>
