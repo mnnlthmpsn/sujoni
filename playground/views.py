@@ -61,5 +61,5 @@ def update_item(request, item_id):
         item.title = title
         item.content = content
         item.save()
-        return HttpResponseRedirect(reverse('playground:read_item', kwargs={item_id: item_id}))
+        return HttpResponseRedirect(reverse('playground:read_item', kwargs={'item_id': item_id}))
     return render(request, 'playground/edit_item.html', { 'item': item, 'categories': categories })
