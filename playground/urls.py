@@ -5,6 +5,7 @@ app_name = 'playground'
 urlpatterns = [
     path('', views.index, name='index'),
     path('item/add/', views.add_item, name='add_item'),
+    path('cat/<uuid:cat_id>/', views.category_details, name='cat_details'),
     path('item/<uuid:item_id>/read/', views.read_item, name='read_item'),
     path('item/<uuid:item_id>/update/', views.update_item, name='update_item'),
     path('logout/', views.ac_logout, name='logout'),

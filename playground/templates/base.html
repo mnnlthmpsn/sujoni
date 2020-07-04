@@ -42,9 +42,9 @@
             <div class="collapse navbar-collapse" id="mainNav">
                 <div class="navbar-nav nav-fill w-100 ">
                     <div class="navbar-nav w-50 m-auto">
-                        <a class="nav-item nav-link text-white text-center" href="#">Poems</a>
-                        <a class="nav-item nav-link text-white text-center" href="#">Stories</a>
-                        <a class="nav-item nav-link text-white text-center" href="#">Lyrics</a>
+                        {% for category in categories %}
+                        <a class="nav-item nav-link text-white text-center" href="{% url 'playground:cat_details' category.id %}">{{ category.title }}</a>
+                        {% endfor %}
                     </div>
                 </div>
             </div>

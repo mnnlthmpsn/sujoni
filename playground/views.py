@@ -38,8 +38,9 @@ def add_item(request):
     return render(request, 'playground/add_item.html', {'categories': categories})
 
 def read_item(request, item_id):
+    categories = Category.objects.all()
     item = Item.objects.get(pk=item_id)
-    return render(request, 'playground/read_item.html', {'item': item})
+    return render(request, 'playground/read_item.html', {'item': item, 'categories': categories})
 
 def update_item(request, item_id):
     item = Item.objects.get(pk=item_id)
@@ -58,3 +59,11 @@ def update_item(request, item_id):
         item.save()
         return HttpResponseRedirect(reverse('playground:read_item', kwargs={'item_id': item_id}))
     return render(request, 'playground/edit_item.html', { 'item': item, 'categories': categories })
+
+def category_details(request, cat_id):
+    categories = Category.objects.all()
+    category = Category.objects.get(pk=cat_id)
+    return render(request, 'playground/item_details.html', {
+        'category': category,
+        'categories': categories
+    })

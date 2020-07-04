@@ -1,0 +1,28 @@
+{% extends '../base.html' %}
+
+{% block body %}
+<div class="container">
+    <h1 class="display-4 text-center pb-4">{{ category.title }}</h1>
+
+<div class="row">
+    {% if category.item_set.all|length > 0 %}
+        {% for item in category.item_set.all %}
+        <div class="col-sm-6 col-lg-3">
+            <div class="card mb-2 shadow">
+                <img class="card-img-top img-fluid" src="https://filmdaily.co/wp-content/uploads/2020/04/dog-memes-lede-1-1300x813.jpg" alt="">
+                <div class="card-body">
+                    <h3 class="card-title">{{ item.title }}</h3>
+                    <p class="card-subtitle text-muted mb-2"><em>{{ item.category }}</em></p>
+                    <p class="card-subtitle text-muted mb-2"><strong>{{ item.owner }}</strong></p>
+                    <p class="card-subtitle text-muted mb-2">{{ item.pub_date }}</p>
+                    <a class="btn btn-success" href="{% url 'playground:read_item' item.id %}">Read</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    {% else %}
+        <p class="lead text-center">No items added for <strong>{{ category.title }}</strong></p>
+    {% endif %}
+</div>
+</div>
+{% endblock %}
