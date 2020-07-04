@@ -23,8 +23,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
-ALLOWED_HOSTS = ['http://sujoni.herokuapp.com', 'https://sujoni.herokuapp.com']
+DEBUG = True
+ALLOWED_HOSTS = ['localhost', 'http://sujoni.herokuapp.com', 'https://sujoni.herokuapp.com']
 
 
 # Application definition
