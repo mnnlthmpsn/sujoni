@@ -8,11 +8,6 @@ from .models import *
 def index(request):
     categories = Category.objects.all()
     items = Item.objects.all()
-
-    if items.count() > 4:
-        recent_items = list(items[-4])
-    else:
-        recent_items = []
     return render(request, 'playground/index.html', {
         'categories': categories,
         'items': items
